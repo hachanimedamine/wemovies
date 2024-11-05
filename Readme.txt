@@ -6,7 +6,7 @@ mettre le api key dans le fichier .env TMDB_BEARER_TOKEN:
 ## Installation
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/hachanimedamine/WeMovies.git
+   git clone https://github.com/hachanimedamine/wemovies.git
 
 ## Docker
 Pour lancer l image docker : docker build -t wemovies .
