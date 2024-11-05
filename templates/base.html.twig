@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body>
+        <!-- Header Section with Search and Auth Links -->
+        <div class="container mt-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>A propos de We Movies</h1>
+                
+                <!-- Search Box -->
+                <div class="search-box position-relative" style="flex-grow: 1; max-width: 250px;">
+                    <input type="text" placeholder="Rechercher..." class="form-control d-inline-block movieSearchInput" style="width: 100%;">
+                    <button class="btn btn-primary movieSearchInputButton position-absolute" style="top: 0; right: 0;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="autocomplete-results"></div>
+                </div>
+
+                <!-- Login/Register Links -->
+                <div class="auth-links">
+                   {% if app.user %}
+                        <span class="me-3">Salut, {{ app.user.email }}</span>
+                        <a href="{{ path('app_logout') }}" class="text-decoration-none">Se déconnecter</a>
+                    {% else %}
+                        <a href="{{ path('app_login') }}" class="text-decoration-none me-3">Connexion</a>
+                        <a href="{{ path('app_register') }}" class="text-decoration-none">Inscription</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Body Content -->
+        <div class="container mt-5">
+            {% block body %}
+            {% endblock %}
+        </div>
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        {% endblock %}
+    </body>
+</html>

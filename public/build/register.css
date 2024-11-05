@@ -1,0 +1,65 @@
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: Arial, sans-serif;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Container for the register card */
+.register-form-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Title styling */
+.register-form-container h1 {
+    color: #764ba2;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Input field styling */
+.form-group .form-control {
+    border-radius: 50px;
+    height: 45px;
+    padding-left: 20px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+.form-group .form-control:focus {
+    border-color: #764ba2;
+    box-shadow: 0 0 5px rgba(118, 75, 162, 0.5);
+}
+
+/* Error message styling */
+.form-error {
+    color: #d9534f;
+    margin-bottom: 1rem;
+}
+
+/* Button styling */
+.btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    box-shadow: 0 4px 10px rgba(118, 75, 162, 0.3);
+}

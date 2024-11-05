@@ -1,0 +1,42 @@
+{% block stylesheets %}
+
+
+    {{ encore_entry_link_tags('login') }}
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class="login-container">
+    <h2>Welcome Back</h2>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="alert alert-success">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}" class="text-primary">Logout</a>
+        </div>
+    {% else %}
+        <form method="post">
+            <input type="email" name="email" value="{{ last_username }}" placeholder="Email" class="form-control" required autofocus>
+            <input type="password" name="password" placeholder="Password" class="form-control" required>
+            
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <div class="form-check mb-3 text-start">
+                <input type="checkbox" class="form-check-input" name="_remember_me" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+
+        <div class="auth-links mt-4">
+            <p>Don't have an account? <a href="{{ path('app_register') }}">Register</a></p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
